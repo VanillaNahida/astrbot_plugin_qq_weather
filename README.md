@@ -4,6 +4,8 @@
 
 一个基于腾讯天气接口的天气查询插件，无需额外配置即可查询全国天气，并支持显示近七日天气及限行信息等。
 
+移植自 YunzaiBot 的 [xiaofei-plugin](https://github.com/xfdown/xiaofei-plugin)
+
 <p align="center">
   <img src="logo.png" alt="logo">
 </p>
@@ -77,6 +79,9 @@ playwright install chromium
 - 二群：1031065631
 - 三群：195260107（推荐）
 - 四群：1074471035
+
+# 致谢
+ - 本插件参考了 [xiaofei-plugin](https://github.com/xfdown/xiaofei-plugin) 的天气模块实现思路。
 
 # Star History
 
