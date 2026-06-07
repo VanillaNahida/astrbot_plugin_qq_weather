@@ -1,7 +1,7 @@
 name: astrbot_plugin_qq_weather
 display_name: QQ天气
 desc: 一个基于腾讯天气接口的天气查询插件，无需额外配置即可查询全国天气，并支持显示近七日天气及限行信息等。
-version: v1.0.0
+version: v1.0.1
 author: 香草味的纳西妲喵（VanillaNahida）
 repo: https://github.com/VanillaNahida/astrbot_plugin_qq_weather
 support_platforms:

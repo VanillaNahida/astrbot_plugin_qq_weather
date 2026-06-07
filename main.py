@@ -8,6 +8,7 @@ from astrbot.api.event import filter, AstrMessageEvent
 from astrbot.api.star import Context, Star, register
 from astrbot.api import logger
 from astrbot.api.message_components import Image
+from astrbot.core.config.default import VERSION
 
 PLAYWRIGHT_AVAILABLE = False
 try:
@@ -16,6 +17,8 @@ try:
     PLAYWRIGHT_AVAILABLE = True
 except ImportError:
     pass
+
+PLUGIN_VERSION = "1.0.1"
 
 WEATHER_API_MATCHING = "https://wis.qq.com/city/matching"
 WEATHER_PAGE = "https://tianqi.qq.com/"
@@ -170,12 +173,12 @@ async def capture_weather_screenshot(area_info: dict) -> bytes:
             )
 
             await page.evaluate(
-                """() => {
+                f"""() => {{
                 var p = document.createElement('p');
                 p.style.cssText = 'text-align: center; font-size: 15px; margin-top: -25px;';
-                p.textContent = 'Created By AstrBot & astrbot_plugin_qq_weather';
+                p.textContent = 'Created By AstrBot v{VERSION} & astrbot_plugin_qq_weather v{PLUGIN_VERSION} | 作者: VanillaNahida（香草味的纳西妲喵）';
                 document.body.appendChild(p);
-            }"""
+            }}"""
             )
 
             body = await page.query_selector("body")
@@ -229,7 +232,7 @@ def _check_playwright_browser():
 PLAYWRIGHT_BROWSER_READY = PLAYWRIGHT_AVAILABLE and _check_playwright_browser()
 
 
-@register("astrbot_plugin_qq_weather", "VanillaNahida", "QQ天气查询插件，使用腾讯天气接口截图", "1.0.0")
+@register("astrbot_plugin_qq_weather", "VanillaNahida", "QQ天气查询插件，使用腾讯天气接口截图", PLUGIN_VERSION)
 class QQWeatherPlugin(Star):
     def __init__(self, context: Context):
         super().__init__(context)
